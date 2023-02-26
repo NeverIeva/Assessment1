@@ -1,0 +1,15 @@
+C:\Users\muljt\OneDrive\Desktop\uni\computer science\oop\CardShuffle\obj\Debug\net7.0\CardShuffle.csproj.AssemblyReference.cache
+C:\Users\muljt\OneDrive\Desktop\uni\computer science\oop\CardShuffle\obj\Debug\net7.0\CardShuffle.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\muljt\OneDrive\Desktop\uni\computer science\oop\CardShuffle\obj\Debug\net7.0\CardShuffle.AssemblyInfoInputs.cache
+C:\Users\muljt\OneDrive\Desktop\uni\computer science\oop\CardShuffle\obj\Debug\net7.0\CardShuffle.AssemblyInfo.cs
+C:\Users\muljt\OneDrive\Desktop\uni\computer science\oop\CardShuffle\obj\Debug\net7.0\CardShuffle.csproj.CoreCompileInputs.cache
+C:\Users\muljt\OneDrive\Desktop\uni\computer science\oop\CardShuffle\bin\Debug\net7.0\CardShuffle.exe
+C:\Users\muljt\OneDrive\Desktop\uni\computer science\oop\CardShuffle\bin\Debug\net7.0\CardShuffle.deps.json
+C:\Users\muljt\OneDrive\Desktop\uni\computer science\oop\CardShuffle\bin\Debug\net7.0\CardShuffle.runtimeconfig.json
+C:\Users\muljt\OneDrive\Desktop\uni\computer science\oop\CardShuffle\bin\Debug\net7.0\CardShuffle.dll
+C:\Users\muljt\OneDrive\Desktop\uni\computer science\oop\CardShuffle\bin\Debug\net7.0\CardShuffle.pdb
+C:\Users\muljt\OneDrive\Desktop\uni\computer science\oop\CardShuffle\obj\Debug\net7.0\CardShuffle.dll
+C:\Users\muljt\OneDrive\Desktop\uni\computer science\oop\CardShuffle\obj\Debug\net7.0\refint\CardShuffle.dll
+C:\Users\muljt\OneDrive\Desktop\uni\computer science\oop\CardShuffle\obj\Debug\net7.0\CardShuffle.pdb
+C:\Users\muljt\OneDrive\Desktop\uni\computer science\oop\CardShuffle\obj\Debug\net7.0\CardShuffle.genruntimeconfig.cache
+C:\Users\muljt\OneDrive\Desktop\uni\computer science\oop\CardShuffle\obj\Debug\net7.0\ref\CardShuffle.dll
