@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//change the riffle shuffle
+
 namespace CMP1903M_A01_2223
 {
     class Shuffle

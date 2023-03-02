@@ -23,7 +23,7 @@ namespace CMP1903M_A01_2223
             }
         }
 
-        public bool shuffleCardPack(int typeOfShuffle) //maybe proper error handling?
+        public bool shuffleCardPack(int typeOfShuffle)
         {
             //Shuffles the pack based on the type of shuffle
             //1 = Fisher-Yates Shuffle, 2 = Riffle Shuffle

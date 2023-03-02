@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//check against the breif
-//upload to github
-//TESTING CLASS!!!
 
 namespace CMP1903M_A01_2223
 {
