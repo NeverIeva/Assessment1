@@ -13,21 +13,21 @@ namespace CMP1903M_A01_2223
             //testing the FisherYates shuffle
             Pack pack = new Pack();
             pack.shuffleCardPack(1);
-            pack.dealCard(5).ForEach(Console.WriteLine); //prints 5 random cards doesn't throw any errors
+            pack.dealCard(10).ForEach(Console.WriteLine); //prints 10 random cards doesn't throw any errors
             Console.WriteLine('\n');
-            Console.WriteLine(pack.deal().ToString()); //prints out the same first card as in the dealCard(5)
+            Console.WriteLine(pack.deal().ToString()); //prints out one card
             Console.WriteLine('\n');
 
-            
+
             //testing the Riffle shuffle
             Pack newPack = new Pack();
             newPack.shuffleCardPack(2);
-            newPack.dealCard(5).ForEach(Console.WriteLine); //5 random cards no errors
+            newPack.dealCard(10).ForEach(Console.WriteLine); //10 random cards no errors
             Console.WriteLine('\n');
-            Console.WriteLine(newPack.deal().ToString()); //same top card as the one from dealCard(5)
+            Console.WriteLine(newPack.deal().ToString()); //prints out one card
             Console.WriteLine('\n');
 
-            
+
             //testing no shuffle
             Pack pack2 = new Pack();
             pack2.shuffleCardPack(3);
@@ -42,16 +42,60 @@ namespace CMP1903M_A01_2223
             Console.WriteLine(pack2.shuffleCardPack(-1).ToString()); //prints out the same message and the return value is False as it should be
             pack2.dealCard(5).ForEach(Console.WriteLine); //no shuffle got applied to the deck
 
-            try
+            
+            //testing for wrong input and packs being emptied
+            Pack pack3 = new Pack();
+            while(true)
             {
-                pack2.dealCard(60).ForEach(Console.WriteLine); //this threw an exeption as its supposed to and it printed out the statemt in the catch block 
-                //same for arg < 1
-            }
-            catch
-            {
-                Console.WriteLine("Exception caught");
-            }
+                Console.WriteLine("How many cards do you want to deal? ");
+                int amount = Convert.ToInt32(Console.ReadLine());
 
+                if(amount == 1)
+                {
+                    try
+                    {
+                        Console.WriteLine(pack3.deal().ToString());
+                    }catch
+                    {
+                        //due to a guard clause being used the user can choose how to handle this exception
+                        Console.WriteLine("Exception caught"); //when the pack becomes empty or the argument is wrong the expection is caught succesfully
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        pack3.dealCard(amount).ForEach(Console.WriteLine);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Exception caught"); //exception is caught when pack is empty and for wrong argument (negatives or more than cards left in pack)
+                    }
+
+                    Console.WriteLine(pack3.cardsLeftInPack() + " cards left"); //prints out the correct amount of cards left in the pack
+                    
+                    if(!pack3.packIsEmpty()) //correctly evaluates if the pack is empty or not
+                    {
+                        pack3.shuffleCardPack(2); //still shuffles the remaining pack with no error unless the pack is empty in which case error handling can be used
+                    }
+                    else
+                    {
+                        Console.WriteLine("The pack is empty can't shuffle it");
+                    }
+                }
+
+                Console.WriteLine("Continue (1) or exit (2)? ");
+                int choice = Convert.ToInt32(Console.ReadLine());
+
+                if(choice == 1)
+                {
+                    continue;
+                }
+                else if(choice == 2)
+                {
+                    break;
+                }
+            }
         }
     }
 }

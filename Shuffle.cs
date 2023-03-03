@@ -35,7 +35,7 @@ namespace CMP1903M_A01_2223
 
 
 
-        public static List<Card> Riffle(List<Card> deck) //change this so it starts either at the left or right
+        public static List<Card> Riffle(List<Card> deck)
         {
             //throw an exception to the user if the deck of cards is empty
             if(deck.Count == 0)
