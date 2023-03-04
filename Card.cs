@@ -26,7 +26,6 @@ namespace CMP1903M_A01_2223
                 else
                 {
                     Console.WriteLine("The value is invalid");
-                    //close app?
                 }
             }
         }
