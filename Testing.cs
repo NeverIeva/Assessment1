@@ -10,83 +10,77 @@ namespace CMP1903M_A01_2223
     {
         public Testing()
         {
-            //testing the FisherYates shuffle
-            Pack pack = new Pack();
-            pack.shuffleCardPack(1);
-            pack.dealCard(10).ForEach(Console.WriteLine); //prints 10 random cards doesn't throw any errors
-            Console.WriteLine('\n');
-            Console.WriteLine(pack.deal().ToString()); //prints out one card
-            Console.WriteLine('\n');
-
-
-            //testing the Riffle shuffle
-            Pack newPack = new Pack();
-            newPack.shuffleCardPack(2);
-            newPack.dealCard(10).ForEach(Console.WriteLine); //10 random cards no errors
-            Console.WriteLine('\n');
-            Console.WriteLine(newPack.deal().ToString()); //prints out one card
-            Console.WriteLine('\n');
-
-
-            //testing no shuffle
-            Pack pack2 = new Pack();
-            pack2.shuffleCardPack(3);
-            pack2.dealCard(5).ForEach(Console.WriteLine); //unshuffled just prints out ace hearts, 2 hearts, 3 hearts, 4 hearts, 5 hearts etc
-            Console.WriteLine('\n');
-            Console.WriteLine(pack2.deal().ToString()); //prints out the top card (Ace hearts)
-            Console.WriteLine('\n');
-
-
-            //testing invalid arguments
-            pack2.shuffleCardPack(4); //prints out a message saying the shuffle doesn't exist
-            Console.WriteLine(pack2.shuffleCardPack(-1).ToString()); //prints out the same message and the return value is False as it should be
-            pack2.dealCard(5).ForEach(Console.WriteLine); //no shuffle got applied to the deck
-
-            
-            //testing for wrong input and packs being emptied
+            //testing all the shuffles and deal methods as well as error handling
             Pack pack3 = new Pack();
             while(true)
             {
-                Console.WriteLine("How many cards do you want to deal? ");
-                int amount = Convert.ToInt32(Console.ReadLine());
-
-                if(amount == 1)
+                int shuffle = 0;
+                int amount = 0;
+                
+                if(!pack3.packIsEmpty()) //correctly identifies if the pack is empty and ends the program if it is
                 {
                     try
                     {
-                        Console.WriteLine(pack3.deal().ToString());
-                    }catch
+                        Console.WriteLine("What shuffle do you want to use? ");
+                        shuffle = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine("How many cards do you want to deal? ");
+                        amount = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch(FormatException)
                     {
-                        //due to a guard clause being used the user can choose how to handle this exception
-                        Console.WriteLine("Exception caught"); //when the pack becomes empty or the argument is wrong the expection is caught succesfully
+                        Console.WriteLine("Please enter an integer");
+                        continue;
+                    }
+
+                    pack3.shuffleCardPack(shuffle); //all the shuffles work and when the shuffle number is wrong false is returned an nothing happens to the deck
+                }
+                else
+                {
+                    Console.WriteLine("The pack is now empty");
+                    break;
+                }
+                
+
+                if(amount == 1)
+                {
+                    if(!pack3.packIsEmpty()) //the user can check if the pack is empty and if it is they can close the program
+                    {
+                        Console.WriteLine(pack3.deal().ToString()); //successfully deals one card
+                    }
+                    else
+                    {
+                        Console.WriteLine("The pack is empty");
+                        break;
                     }
                 }
                 else
                 {
-                    try
+                    if(pack3.cardsLeftInPack()-amount < 0 || amount < 0) //the user can check if theres enough cards left before calling the method
                     {
-                        pack3.dealCard(amount).ForEach(Console.WriteLine);
-                    }
-                    catch
-                    {
-                        Console.WriteLine("Exception caught"); //exception is caught when pack is empty and for wrong argument (negatives or more than cards left in pack)
-                    }
-
-                    Console.WriteLine(pack3.cardsLeftInPack() + " cards left"); //prints out the correct amount of cards left in the pack
-                    
-                    if(!pack3.packIsEmpty()) //correctly evaluates if the pack is empty or not
-                    {
-                        pack3.shuffleCardPack(2); //still shuffles the remaining pack with no error unless the pack is empty in which case error handling can be used
+                        Console.WriteLine("The amount is more than cards left in the deck, cards left: " + pack3.cardsLeftInPack());
+                        continue;
                     }
                     else
                     {
-                        Console.WriteLine("The pack is empty can't shuffle it");
+                        pack3.dealCard(amount).ForEach(Console.WriteLine); //successfully deals the cards asked
                     }
+
+                    Console.WriteLine(pack3.cardsLeftInPack() + " cards left"); //prints out the correct amount of cards left in the pack
                 }
 
-                Console.WriteLine("Continue (1) or exit (2)? ");
-                int choice = Convert.ToInt32(Console.ReadLine());
-
+                int choice = 0;
+                try
+                {   
+                    Console.WriteLine("Continue (1) or exit (2)? ");
+                    choice = Convert.ToInt32(Console.ReadLine());
+                }
+                catch(FormatException)
+                {
+                    Console.WriteLine("Enter an int");
+                    continue;
+                }
+                
                 if(choice == 1)
                 {
                     continue;
