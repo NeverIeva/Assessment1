@@ -46,7 +46,7 @@ namespace CMP1903M_A01_2223
             else
             {
                 //if any other typeOfShuffle nothing happens and the function returns false so the user knows the arg they gave was incorrect
-                Console.WriteLine("That shuffle does not exist, no shuffle has been applied to your deck of cards"); //either change to a guard clause or keep it as it is
+                Console.WriteLine("That shuffle does not exist, no shuffle has been applied to your deck of cards");
                 shuffled = false;
             }
 
@@ -60,8 +60,11 @@ namespace CMP1903M_A01_2223
             {
                 Console.WriteLine("The pack of cards is empty");
                 throw new ArgumentNullException("This pack of cards is empty");
-            }else
+            }
+            else
             {
+                //after the first review: added a feture to remove the cards from the pack after they are dealt
+
                 oneCard = pack[0]; //chooses a card from the top of the pack and removes it from the pack
                 pack.RemoveAt(0);
 
@@ -80,7 +83,7 @@ namespace CMP1903M_A01_2223
             List<Card> cards = new List<Card>();
 
             //check that the amount is possible to give out if not return a an empty list and write to the console
-            if(amount > pack.Count || amount < 1)
+            if(amount > pack.Count || amount < 0)
             {
                 Console.WriteLine("The pack of cards has " + pack.Count + " cards left, please choose between 0 and that ammount of cards");
 
@@ -89,6 +92,8 @@ namespace CMP1903M_A01_2223
             }
             else
             {
+                //after first review: added feature to remove the cards dealt from the pack 
+
                 //takes the amount of card specified and removes them from the pack
                 cards = pack.Take(amount).ToList();
                 pack.RemoveRange(0, amount);
@@ -108,7 +113,7 @@ namespace CMP1903M_A01_2223
             return pack.Count;
         }
 
-        //checks is the pack is empty or not
+        //method for the user to check if the pack is empty or not
         public bool packIsEmpty()
         {
             if(pack.Count == 0)

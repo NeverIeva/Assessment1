@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace CMP1903M_A01_2223
 {
     class Shuffle
-    {
+    {   
+        //class not included in the base code
         //class with the algorithms for the shuffling
         public static List<Card> FisherYates(List<Card> deck)
         {
@@ -32,7 +33,6 @@ namespace CMP1903M_A01_2223
 
             return deck;
         }
-
 
 
         public static List<Card> Riffle(List<Card> deck)

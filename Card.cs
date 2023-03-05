@@ -26,6 +26,7 @@ namespace CMP1903M_A01_2223
                 else
                 {
                     Console.WriteLine("The value is invalid");
+                    throw new Exception("The value should be between 1 and 13");
                 }
             }
         }
@@ -42,7 +43,7 @@ namespace CMP1903M_A01_2223
                 else
                 {
                     Console.WriteLine("The suit is invalid");
-                    //close app?
+                    throw new Exception("The suit should be between 1 and 4");
                 }
             }
         }
