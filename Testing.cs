@@ -12,13 +12,16 @@ namespace CMP1903M_A01_2223
         {
             //testing all the shuffles and deal methods as well as error handling
             Pack pack3 = new Pack();
-            while(true)
+
+            do
             {
                 int shuffle = 0;
                 int amount = 0;
+
+                Console.WriteLine("Cards left in the pack: " + pack3.cardsLeftInPack()); //prints out the correct amount left
                 
-                if(!pack3.packIsEmpty()) //correctly identifies if the pack is empty and ends the program if it is
-                {
+                //if(!pack3.packIsEmpty()) //correctly identifies if the pack is empty and ends the program if it is
+                //{
                     try
                     {
                         Console.WriteLine("What shuffle do you want to use? ");
@@ -29,17 +32,17 @@ namespace CMP1903M_A01_2223
                     }
                     catch(FormatException)
                     {
-                        Console.WriteLine("Please enter an integer");
+                        Console.WriteLine("ERROR: Please enter an integer");
                         continue;
                     }
 
                     pack3.shuffleCardPack(shuffle); //all the shuffles work and when the shuffle number is wrong false is returned an nothing happens to the deck
-                }
-                else
-                {
-                    Console.WriteLine("The pack is now empty");
-                    break;
-                }
+                //}
+                //else
+                //{
+                //    Console.WriteLine("The pack is now empty");
+                //    break;
+                //}
                 
 
                 if(amount == 1)
@@ -56,17 +59,15 @@ namespace CMP1903M_A01_2223
                 }
                 else
                 {
-                    if(pack3.cardsLeftInPack()-amount < 0 || amount < 0) //the user can check if theres enough cards left before calling the method
+                    if(!pack3.checkIfEnoughCards(amount)) //the user can check if theres enough cards left before calling the method
                     {
-                        Console.WriteLine("The amount is more than cards left in the deck, cards left: " + pack3.cardsLeftInPack());
+                        Console.WriteLine("The amount you entered is not valid, cards left: " + pack3.cardsLeftInPack());
                         continue;
                     }
                     else
                     {
                         pack3.dealCard(amount).ForEach(Console.WriteLine); //successfully deals the cards asked
                     }
-
-                    Console.WriteLine(pack3.cardsLeftInPack() + " cards left"); //prints out the correct amount of cards left in the pack
                 }
 
                 int choice = 0;
@@ -77,7 +78,7 @@ namespace CMP1903M_A01_2223
                 }
                 catch(FormatException)
                 {
-                    Console.WriteLine("Enter an int");
+                    Console.WriteLine("ERROR: Please enter (1) or (2)");
                     continue;
                 }
                 
@@ -89,7 +90,7 @@ namespace CMP1903M_A01_2223
                 {
                     break;
                 }
-            }
+            }while(!pack3.packIsEmpty());
         }
     }
 }
