@@ -126,6 +126,18 @@ namespace CMP1903M_A01_2223
             }
         }
 
+        public bool checkIfEnoughCards(int n)
+        {
+            if(pack.Count - n < 0 & n > 0 | n < 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
 
         //a method that gives the string representation of the Pack class, so when printed the cards are written on a seperate line
         public override string ToString()
